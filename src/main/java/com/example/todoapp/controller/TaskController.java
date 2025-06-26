@@ -17,7 +17,7 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @GetMapping("/get")
+    @GetMapping
     public String getTasks(Model model){
         List<Task> tasks = taskService.getAllTasks();
         model.addAttribute("tasks",tasks);

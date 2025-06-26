@@ -16,6 +16,9 @@ public class Task {
     private String title;
     private boolean completed;
 
+    public Task() {
+        // no-arg constructor is required
+    }
     public Task(Long id, String title, boolean completed) {
         this.id = id;
         this.title = title;
