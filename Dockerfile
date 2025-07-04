@@ -1,11 +1,23 @@
-FROM maven:3.8.5-openjdk-17 AS build
-WORKDIR /app
-COPY . .
-RUN mvn clean package -DskipTests
+# Stage 1: Build using Maven with Java 21
+FROM eclipse-temurin:21-jdk AS build
 
-# Stage 2: Run
-FROM openjdk:17.0.1-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/todoapp-0.0.1-SNAPSHOT.jar todoapp.jar
+
+# Copy project files
+COPY . .
+
+# Build the project
+RUN ./mvnw clean package -DskipTests
+
+# Stage 2: Run the app with Java 21
+FROM eclipse-temurin:21-jdk
+
+WORKDIR /app
+
+# Copy the built JAR from the previous stage
+COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "todoapp.jar"]
+
+# Run the Spring Boot app
+ENTRYPOINT ["java", "-jar", "app.jar"]
