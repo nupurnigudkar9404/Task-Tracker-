@@ -1,20 +1,23 @@
-# Stage 1: Build using Maven with Java 21
+# Stage 1: Build the app with Java 21
 FROM eclipse-temurin:21-jdk AS build
 
 WORKDIR /app
 
-# Copy project files
+# Copy everything into the container
 COPY . .
 
-# Build the project
+# Make mvnw executable
+RUN chmod +x mvnw
+
+# Build the Spring Boot application
 RUN ./mvnw clean package -DskipTests
 
-# Stage 2: Run the app with Java 21
+# Stage 2: Run the app
 FROM eclipse-temurin:21-jdk
 
 WORKDIR /app
 
-# Copy the built JAR from the previous stage
+# Copy the built jar from the previous stage
 COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
