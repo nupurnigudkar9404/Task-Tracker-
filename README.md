@@ -13,12 +13,13 @@ Mark tasks as completed or not completed (Toggle)
 Delete tasks
 View all tasks on one page
 
+📲 Deployment
+🌐 Live App: [Click here to view the deployed app](https://task-tracker-production-c80d.up.railway.app/)
+
+
 🚀 How to Run Clone the Repository give this
 
 ```bash
-git clone https://github.com/your-username/Todo-App.git
-cd todoapp
+git clone https://github.com/your-username/Task-Tracker-.git
+cd tasktracker
 
-📲 Deployment
-
-🌐 Live App: [Click here to view the deployed app](https://task-tracker-production-c80d.up.railway.app/)
