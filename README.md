@@ -18,3 +18,7 @@ View all tasks on one page
 ```bash
 git clone https://github.com/your-username/Todo-App.git
 cd todoapp
+
+📲 Deployment
+
+🌐 Live App: [Click here to view the deployed app](https://task-tracker-production-c80d.up.railway.app/)
