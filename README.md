@@ -21,5 +21,5 @@ View all tasks on one page
 
 ```bash
 git clone https://github.com/your-username/Task-Tracker-.git
-cd tasktracker
+cd Task-Tracker-
 
