@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/tasks")
+
 public class TaskController {
 
     @Autowired
     private TaskService taskService;
 
-    @GetMapping
+    @GetMapping("/")
     public String getTasks(Model model) {
         List<Task> tasks = taskService.getAllTasks();
         model.addAttribute("tasks", tasks);
